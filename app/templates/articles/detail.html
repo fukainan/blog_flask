@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block page_body %}
+    <div class="container">
+        {#        Meta信息#}
+        <span>作者:{{ article.author.name }}</span>
+        <span>发表时间:{{ article.created_time }}</span>
+        <hr>
+        {#        正文#}
+        <div>
+            {{ article.body_html | safe }}
+        </div>
+        {#        操作链接#}
+        <h3>评论</h3>
+        {#        发表评论#}
+        <div>
+            {{ wtf.quick_form(form) }}
+        </div>
+        {#        评论列表#}
+        {% for comment in article.comments | sort(attribute='created_time', reverse=True) %}
+            <div class="media">
+                <div class="media-left">
+{#                    用户头像#}
+                </div>
+            </div>
+            <div class="media-body">
+                {{ comment.created_time }}
+                {{ comment.body }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
