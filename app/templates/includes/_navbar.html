@@ -12,18 +12,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand">{{ 'Flask入门' }}</span>
+            <span class="navbar-brand">博客</span>
         </div>
         <div class="navbar-collapse collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
                 <li {% if url_for('main.index') is current_link %} class="active"{% endif %}>
                     <a href="{{ url_for('main.index') }}" title="主页">主页</a>
                 </li>
-                <li {% if url_for('main.about') is current_link %} class="active"{% endif %}>
-                    <a href="{{ url_for('main.about') }}" title="关于">关于</a>
+                <li {% if url_for('main.articles') is current_link %} class="active"{% endif %}>
+                    <a href="{{ url_for('main.articles') }}" title="文章">文章</a>
                 </li>
-                <li {% if url_for('main.projects') is current_link %} class="active"{% endif %}>
-                    <a href="{{ url_for('main.about') }}" title="项目">项目</a>
+                <li {% if url_for('myview.index') is current_link %} class="active"{% endif %}>
+                    <a href="{{ url_for('myview.index') }}" title="后台管理">后台管理</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

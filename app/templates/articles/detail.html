@@ -4,6 +4,10 @@
 {% block page_body %}
     <div class="container">
         {#        Meta信息#}
+        {% if current_user.id == article.author_id %}
+            <a href="{{ url_for('main.edit', id=article.id) }}" class="btn btn-default">编辑</a>
+            <a href="{{ url_for('main.del_art', id=article.id) }}" class="btn btn-danger">删除</a>
+        {% endif %}
         <span>作者:{{ article.author.name }}</span>
         <span>发表时间:{{ article.created_time }}</span>
         <hr>
@@ -21,13 +25,16 @@
         {% for comment in article.comments | sort(attribute='created_time', reverse=True) %}
             <div class="media">
                 <div class="media-left">
-{#                    用户头像#}
+                    {#                    用户头像#}
                 </div>
             </div>
             <div class="media-body">
                 {{ comment.created_time }}
                 {{ comment.body }}
             </div>
+            {% if current_user.id == comment.author_id %}
+            <a href="{{ url_for('main.del_com', id=comment.id) }}" class="btn-link">删除</a>
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

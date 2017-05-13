@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
 {% endblock styles %}
 {% block navbar %}
-{#        {{ nav.top.render() }}#}
+    {#        {{ nav.top.render() }}#}
     {% include 'includes/_navbar.html' %}
 {% endblock navbar %}
 {% block content %}
@@ -24,9 +24,9 @@
     {% endblock %}
     {% block page_body %}
     {% endblock %}
-{% endblock %}
-{% block footer %}
-    <footer>
-        Copyright 2017 by <a href="#"></a>
-    </footer>
+    <div class="modal-footer bottom">
+        <footer>
+            Copyright 2017 by FKN
+        </footer>
+    </div>
 {% endblock %}

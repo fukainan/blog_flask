@@ -1,0 +1,11 @@
+{% extends 'admin/master.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block body %}
+    {{ super() }}
+    {% if current_user.is_authenticated and current_user.role.name=='Administrators' %}
+        欢迎来到后台管理系统！
+    {% else %}
+        <a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-user"></span> 请登录管理员账号</a>
+    {% endif %}
+{% endblock body %}
