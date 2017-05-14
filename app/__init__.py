@@ -36,11 +36,12 @@ login_manager.login_view = 'auth.login'
 def create_app():
     app = Flask(__name__)
     app.url_map.converters['regex'] = RegexConverter
-    app.secret_key = 'hard to guess string'
-    app.config['DEBUG'] = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@127.0.0.1:3306/blog_flask'
-    app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-    app.config['BABEL_DEFAULT_LOCALE'] = 'zh_CN'
+    # app.secret_key = 'hard to guess string'
+    # app.config['DEBUG'] = True
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@127.0.0.1:3306/blog_flask'
+    # app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+    # app.config['BABEL_DEFAULT_LOCALE'] = 'zh_CN'
+    app.config.from_pyfile('config.py')
 
     # nav.register_element('top', Navbar(u'博客首页',
     #                                    View(u'主页', 'main.index'),

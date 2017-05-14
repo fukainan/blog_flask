@@ -17,10 +17,11 @@ from flask_babel import gettext as _
 @main.route('/index')
 def index():
     # articles = Article.query.all()
-    articles = []
-    for i in range(20):
-        article = Article.query.get_or_404(randint(1, len(Article.query.all())))
-        articles.append(article)
+    # articles = []
+    # for i in range(20):
+    #     article = Article.query.get_or_404(randint(1, len(Article.query.all())))
+        # articles.append(article)
+    articles = Article.query.limit(20).all()
     return render_template('index.html', title=u'欢迎来到博客', articles=articles)
 
 

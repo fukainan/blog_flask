@@ -49,9 +49,11 @@ def forged():
                     role=guests)
 
     users = [generate_user() for i in range(0, 5)]
+    users.append(User(name='admin', password='admin', role_id=2))
     db.session.add_all(users)
+    User.query.filter_by(name='admin').update({'role_id':2})
 
-    random_user = lambda: users[randint(0, 4)]
+    random_user = lambda: users[randint(0, 5)]
 
     articles = [generate_article(random_user) for i in range(0, randint(50, 200))]
     db.session.add_all(articles)

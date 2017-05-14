@@ -8,4 +8,5 @@
     {% else %}
         <a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-user"></span> 请登录管理员账号</a>
     {% endif %}
+    <a href="{{ url_for('main.index') }}">主页</a>
 {% endblock body %}
